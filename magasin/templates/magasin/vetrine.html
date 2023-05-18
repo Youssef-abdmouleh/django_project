@@ -8,23 +8,29 @@
 <form method='POST' class="post-form">
     {% csrf_token %}
     <div class="container">
-        <div style="overflow:scroll; border:#000000 1px solid;">
-            <table>
-                <tr>
-                    {% for article in list %}
-                    <td>
-                        <img src='/media/{{ article.img }}' class="rounded float-start" height="200px" width="200px"
-                            alt="">
-                        <figcaption class="figure-caption">
-                            {{article.libelle}}
-                        </figcaption>
-                        <p> {{article.img}} </p>
-                        <p> {{article.prix}} DT. </p>
-                    </td>
-                    {% endfor %}
-                </tr>
-            </table>
-        </div>
+         {% for article in list %}
+        <div class="card" style="width: 18rem;">
+           
+            <img src='/media/{{ article.img }}' class="card-img-top" alt="image of {{article.libelle}}">
+            
+            <div class="card-body">
+                <h5 class="card-title">{{article.libelle}}</h5>
+                <p class="card-text">{{article.description}}</p>
+            </div>
+
+            
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{article.categorie}}</li>
+                <li class="list-group-item">{{article.type}}</li>
+                <li class="list-group-item">{{article.prix}} .DT</li>
+            </ul>
+           
+            <div class="card-body">
+                <button class="btn btn-primary"><a href="#" class="">Modifier</a></button>
+                <button class="btn btn-danger"><a href="#" class="">supprimer</a></button>
+            </div>
+        </div>{% endfor %}
+    </div>
 </form>
 
 {% endblock %}
@@ -35,7 +41,19 @@
 
 
 
-
-
-
-
+<!-- <div class="card" style="width: 18rem;">
+    <img src='/media/{{ article.img }}' class="card-img-top" alt="image of {{article.libelle}}">
+    <div class="card-body">
+        <h5 class="card-title">{{article.libelle}}</h5>
+        <p class="card-text">{{article.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{article.categorie}}</li>
+        <li class="list-group-item">{{article.type}}</li>
+        <li class="list-group-item">{{article.prix}} .DT</li>
+    </ul>
+    <div class="card-body">
+        <button class="btn btn-primary"><a href="#" class="card-link">Modifier</a></button>
+        <button class="btn btn-danger"><a href="#" class="card-link">supprimer</a></button>
+    </div>
+</div> -->

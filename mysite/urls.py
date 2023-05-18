@@ -27,7 +27,6 @@ from magasin.views import ProductViewset, CategoryAPIView
 
 
 router = routers.SimpleRouter()
-#router.register('produit', ProductViewset, basename='produit')
 router.register('produit',viewset=ProductViewset, basename='produit')
 
 urlpatterns = [
