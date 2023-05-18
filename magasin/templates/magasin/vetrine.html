@@ -7,29 +7,28 @@
 
 <form method='POST' class="post-form">
     {% csrf_token %}
-    <div class="container">
-         {% for article in list %}
+    <div class="row-g-3">
+    {% for article in list %}
+    <div class="container col-mb-4">
         <div class="card" style="width: 18rem;">
-           
             <img src='/media/{{ article.img }}' class="card-img-top" alt="image of {{article.libelle}}">
-            
             <div class="card-body">
                 <h5 class="card-title">{{article.libelle}}</h5>
                 <p class="card-text">{{article.description}}</p>
             </div>
-
             
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{article.categorie}}</li>
                 <li class="list-group-item">{{article.type}}</li>
                 <li class="list-group-item">{{article.prix}} .DT</li>
             </ul>
-           
             <div class="card-body">
                 <button class="btn btn-primary"><a href="#" class="">Modifier</a></button>
                 <button class="btn btn-danger"><a href="#" class="">supprimer</a></button>
             </div>
-        </div>{% endfor %}
+        </div>
+    </div>
+    {% endfor %}
     </div>
 </form>
 
